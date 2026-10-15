@@ -1,0 +1,22 @@
+# --- Backend (API) ---
+fastapi==0.115.0
+uvicorn[standard]==0.30.0
+sqlalchemy==2.0.35
+pymssql==2.3.2
+alembic==1.13.0
+python-jose[cryptography]==3.3.0
+passlib[bcrypt]==1.7.4
+bcrypt==4.0.1            # passlib 1.7.4 est incompatible avec bcrypt >= 5
+python-multipart==0.0.9
+pydantic[email]==2.9.0
+pydantic-settings==2.5.0
+email-validator
+fpdf2
+
+pandas                   # check_submission
+openpyxl                 # convert_espf_to_rds, forms generator
+pymupdf                  # init_project (lecture des PDF Jira)
+pywin32; sys_platform == "win32"   # forms generator (pilote Excel)
+pyyaml                   # dictionnaire .yml du forms generator
+requests                 # publication GitLab
+lxml                     # lecture XBRL / XML

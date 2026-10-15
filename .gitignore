@@ -1,0 +1,70 @@
+# =========================
+# Python / FastAPI - Backend
+# =========================
+__pycache__/
+*.py[cod]
+*.pyo
+venv/
+.venv/
+env/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# =========================
+# Environment variables / Secrets
+# =========================
+.env
+.env.*
+!.env.example
+
+# =========================
+# React / TypeScript / Node.js - Frontend
+# =========================
+node_modules/
+**/node_modules/
+dist/
+build/
+coverage/
+.vite/
+*.tsbuildinfo
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# Frontend environment files
+frontend/.env
+frontend/.env.*
+!frontend/.env.example
+
+# =========================
+# IDE / Editor
+# =========================
+.vs/
+.vscode/
+.idea/
+
+# =========================
+# Logs
+# =========================
+*.log
+
+# =========================
+# OS
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# Generated archives
+# =========================
+*.zip
+# Application runtime data
+pure-tools-platform/backend/storage/uploads/
+pure-tools-platform/backend/storage/outputs/
+pure-tools-platform/backend/storage/avatars/
+# Generated reports and test outputs
+pure-param-check-submission-input/user_reports/
+
+# Local Git backups
+Tools_Git_Backup/

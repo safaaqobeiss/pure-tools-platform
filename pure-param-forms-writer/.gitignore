@@ -1,0 +1,10 @@
+venv/
+bdf/ruba/__pycache__/
+bdf/ruba/test/__pycache__/
+.venv
+eba/test/generated_output
+common/test/generated_output
+
+# report: .gitignore file of AI tool for generating Pure forms based on Report forms (according to non-migrated specifications); input, output and log files
+report/input/
+report/generated_output/

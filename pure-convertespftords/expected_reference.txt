@@ -1,0 +1,141 @@
+================================================================================
+EXPECTED OUTPUT REFERENCE
+Generated from expected/ESPF_CATR_SicReport.csv and expected/ESPF_engag_SicReport.csv
+================================================================================
+
+=== CATR EXPECTED (25 columns, "expected" order) ===
+
+Column order:
+  1. datasetCode
+  2. reportingSessionPeriodicity
+  3. reportingSessionDate
+  4. institutionCode
+  5. datasourceCode
+  6. identifier
+  7. commonDatasetRecordId
+  8. frbdfrubaContractAmount
+  9. frbdfrubaNatureOfthetermAccount
+ 10. frbdfrubaMaturityRange
+ 11. frbdfrubaReferenceMarketIndex
+ 12. frbdfrubaInterestRateSlice1
+ 13. frbdfrubaInterestRateSlice2
+ 14. frbdfrubaInterestRateSlice3
+ 15. frbdfrubaInterestRateSlice4
+ 16. frbdfrubaInterestRateSlice5
+ 17. frbdfrubaInterestRateSlice6
+ 18. frbdfrubaInterestRateSlice7
+ 19. frbdfrubaInterestRateSlice8
+ 20. frbdfrubaInterestRateSlice9
+ 21. frbdfrubaSpread
+ 22. frbdfrubaCounterpartInstitutionalSector
+ 23. frbdfrubaDurin
+ 24. currency
+ 25. originalMaturityInMonths
+
+Rules:
+  - datasetCode = frbdfruba_catr
+  - reportingSessionPeriodicity = monthly
+  - institutionCode = RUBA
+  - datasourceCode = CPTB (from ESPF header CDFILI)
+  - identifier = incremental counter (1, 2, 3, ...)
+  - commonDatasetRecordId = always empty
+  - frbdfrubaReferenceMarketIndex = always empty in test data
+  - originalMaturityInMonths = always empty in test data
+  - frbdfrubaContractAmount = decimal, from signed zone MONTCONTR / 100
+  - frbdfrubaSpread = decimal, from signed zone SPREAD / 10000
+  - frbdfrubaInterestRateSlice1-9 = decimal 6dp, from signed zones TESE1-9 / 1000000
+  - frbdfrubaDurin = integer, from zone DUREEINI
+  - frbdfrubaCounterpartInstitutionalSector = integer code, from zone AGENTECO
+  - frbdfrubaNatureOfthetermAccount = integer code, from zone NATCAT
+  - frbdfrubaMaturityRange = integer code, from zone MATURITE
+  - currency = EUR (from ESPF header CDDEVI)
+
+Sample data (4 rows):
+  frbdfruba_catr,monthly,20250731,RUBA,CPTB,1,,2015147.17,2,99,,7.049907,4.073771,9.345118,4.963919,7.49678,8.523986,8.785336,0.747554,0.821346,-683.7098,301,6,EUR,
+  frbdfruba_catr,monthly,20250731,RUBA,CPTB,2,,3406623.38,1,7,,2.625093,1.916007,7.871835,4.012574,4.390501,0.102206,4.013045,4.989324,6.320063,-904.2458,302,2,EUR,
+  frbdfruba_catr,monthly,20250731,RUBA,CPTB,3,,1602143.6,1,9,,3.641407,7.448761,-2.915577,3.204641,2.664525,6.269855,4.381212,-1.657362,6.095797,-42.7217,302,6,EUR,
+  frbdfruba_catr,monthly,20250731,RUBA,CPTB,4,,3159985.49,1,9,,0.739764,9.483415,2.211479,5.46667,-3.698804,8.914291,1.940284,5.676753,3.542197,-186.3376,301,6,EUR,
+
+
+=== ENGAG EXPECTED (33 columns, "expected" order) ===
+
+Column order:
+  1. datasetCode
+  2. reportingSessionPeriodicity
+  3. reportingSessionDate
+  4. institutionCode
+  5. datasourceCode
+  6. identifier
+  7. commonDatasetRecordId
+  8. frbdfrubaCountryresidenceimmediaterisk
+  9. frbdfrubaCountryresidenceultimaterisk
+ 10. frbdfrubaResidenceOfaBranchOrSubsidiaryAbroad
+ 11. frbdfrubaCounterpartInstitutionalSector
+ 12. frbdfrubaEconomicCodeOfUltimateRisk
+ 13. frbdfrubaPortfolioType
+ 14. frbdfrubaInstrumentType
+ 15. frbdfrubaTypeOfParticipation
+ 16. frbdfrubaTypeOfSecurity
+ 17. frbdfrubaTypeOfGuarantee
+ 18. frbdfrubaTypeOfEngagement
+ 19. frbdfrubaInitialDurationOfCommitmentLessthanOrGreaterthanOneyear
+ 20. frbdfrubaCurrenciesfamilyimmediaterisk
+ 21. frbdfrubaCurrenciesfamilyultimaterisk
+ 22. frbdfrubaLocalCurrencyIndicatorCountryOfImmediateRisk
+ 23. frbdfrubaLocalCurrencyIndicatorCountryOfUltimateRisk
+ 24. frbdfrubaAmountOfOutstandingTransactionAndCoverage
+ 25. frbdfrubaAmountRemainingTermEqualOrLessThanOneYear
+ 26. frbdfrubaAmountRemainingTermBetweenOneAndTwoYear
+ 27. frbdfrubaAmountRemainingTermMoreThanTwoYear
+ 28. frbdfrubaAmountOfResidualDurationNotAllocated
+ 29. internalAccount
+ 30. amountDirection
+ 31. currency
+ 32. tymnt
+ 33. referenceValue
+
+Rules:
+  - datasetCode = frbdfruba_engag
+  - reportingSessionPeriodicity = monthly
+  - institutionCode = RUBA
+  - datasourceCode = CPTB
+  - identifier = incremental counter (1, 2, 3, ...)
+  - commonDatasetRecordId = always empty
+  - Country codes = ISO 2 letters (US, DE)
+  - frbdfrubaTypeOfSecurity = always empty in test data
+  - frbdfrubaTypeOfGuarantee = always empty in test data
+  - frbdfrubaTypeOfEngagement = always empty in test data
+  - frbdfrubaInitialDuration... = always empty in test data
+  - Amounts = integers (10000000, 2000000, etc.)
+  - amountDirection = D
+  - currency = USD
+  - tymnt = 1
+  - referenceValue = descriptive string (e.g. ESPF ENGAG ENGAGINT1_F01_A1123_05)
+  - internalAccount = numeric (e.g. 111, 3032)
+
+Sample data (4 rows):
+  frbdfruba_engag,monthly,20250731,RUBA,CPTB,1,,US,US,1,206,201,1,4,,,,,,USD,USD,1,1,10000000,2000000,3000000,5000000,0,111,D,USD,1,ESPF ENGAG ENGAGINT1_F01_A1123_05
+  frbdfruba_engag,monthly,20250731,RUBA,CPTB,2,,US,US,1,313,201,1,4,,,,,,USD,USD,1,1,10000000,2000000,3000000,5000000,0,111,D,USD,1,ESPF ENGAG ENGAGINT1_F01_A1123_05
+  frbdfruba_engag,monthly,20250731,RUBA,CPTB,3,,DE,DE,1,206,201,1,2,,,,,,Z06,Z06,2,2,10000000,2000000,3000000,5000000,0,3032,D,USD,1,ESPF ENGAG ENGAGINT2_F01_A1113_05
+  frbdfruba_engag,monthly,20250731,RUBA,CPTB,4,,DE,DE,1,312,201,1,2,,,,,,Z06,Z06,2,2,10000000,2000000,3000000,5000000,0,3032,D,USD,1,ESPF ENGAG ENGAGINT2_F01_A1113_05
+
+
+=== DIFFERENCES: Expected vs RDS (current tool output) ===
+
+CATR:
+  - Expected: 25 columns
+  - RDS:      29 columns (+4: referenceValue, frbdfrubaAgent, frbdfrubaComplementaryArgument, frbdfrubaInternalValue)
+  - Column order differs (RDS follows structuresTransformations sheet)
+
+ENGAG:
+  - Expected: 33 columns
+  - RDS:      48 columns (+15 without mapping, marked <NoMapping>)
+  - Column names differ for country fields:
+      Expected: frbdfrubaCountryresidenceimmediaterisk
+      RDS:      frbdfrubaCountryOfimmediateRiskOrCounterparty
+      Expected: frbdfrubaCountryresidenceultimaterisk
+      RDS:      frbdfrubaCountryOfResidenceOfUltimateRisk
+  - Column order differs
+
+Note: reportingSessionDate differs between expected (20250731) and test output (20231231)
+because they use different input files. The date is extracted from the ESPF header (DTSITU).
